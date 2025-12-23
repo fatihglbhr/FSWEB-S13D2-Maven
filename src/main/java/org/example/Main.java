@@ -3,11 +3,18 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        System.out.println(numberToWords(974456));
     }
     public  static boolean isPalindrome(int num) {
         int number = Math.abs(num);
-        return false;
+        String textNum = String.valueOf(number);
+        String[] nums = textNum.split("");
+        boolean result = true;
+        for(int i = 0; i < nums.length; i++) {
+            if (!nums[i].equals(nums[nums.length - 1 - i]) ){
+                result = false;
+            }
+        }
+        return result;
     }
 
     public  static boolean isPerfectNumber(int num) {
