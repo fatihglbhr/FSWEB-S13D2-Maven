@@ -5,16 +5,13 @@ public class Main {
         System.out.println("Hello world!");
     }
     public  static boolean isPalindrome(int num) {
-        int number = Math.abs(num);
-        String textNum = String.valueOf(number);
-        String[] nums = textNum.split("");
-        boolean result = true;
-        for(int i = 0; i < nums.length; i++) {
-            if (!nums[i].equals(nums[nums.length - 1 - i]) ){
-                result = false;
+        String[] numbers = String.valueOf(Math.abs(num)).split("");
+        for(int i = 0; i < numbers.length; i++) {
+            if (!numbers[i].equals(numbers[numbers.length - 1 - i]) ){
+                return false;
             }
         }
-        return result;
+        return true;
     }
 
     public  static boolean isPerfectNumber(int num) {
@@ -24,11 +21,7 @@ public class Main {
                 result += i;
             }
         }
-        if(result==num) {
-            return true;
-        } else {
-            return false;
-        }
+        return result == num;
     }
 
     public static String numberToWords(int num) {
@@ -38,8 +31,8 @@ public class Main {
         String text = "";
         String[] chars = String.valueOf(num).split("");
         String[] words = {"Zero", "One", "Two","Three","Four","Five","Six","Seven","Eight","Nine"};
-        for(int i = 0; i < chars.length;i++) {
-            text = text.concat(" " + words[Integer.parseInt(chars[i])]);
+        for (String character : chars) {
+            text = text.concat(" " + words[Integer.parseInt(character)]);
         }
         return text.trim();
     }
